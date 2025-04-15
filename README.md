@@ -67,8 +67,6 @@ output/
         renamed_bam/
 fastqc/: FastQC results
 
-
-
 aligned_bam/: Aligned BAM files
 
 bamfiles/renamed_bam/: Processed BAM files with duplicates marked and base recalibrated
