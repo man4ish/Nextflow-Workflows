@@ -1,10 +1,5 @@
 #!/usr/bin/env nextflow
 
-// Define paths for input and output
-params.input = './in/non_redundant_fastq/'
-params.output = './out'
-params.reference = './in/reference/assembly38.fasta'
-params.dbSNP = './in/reference/Homo_sapiens_assembly38.dbsnp138.vcf'
 
 // Process 1: FastQC
 process fastqc {
