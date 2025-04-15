@@ -1,4 +1,4 @@
-# Nextflow Pipeline for Bioinformatics Analysis
+# Nextflow Pipeline for Exome Analysis
 
 This repository contains a Nextflow pipeline for bioinformatics analysis, including quality control (FastQC), alignment (BWA), duplicate marking (Picard), base recalibration (GATK), and variant calling (GATK). The pipeline is encapsulated within a Docker container for easy reproducibility and deployment.
 
