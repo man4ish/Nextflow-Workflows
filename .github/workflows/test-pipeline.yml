@@ -1,0 +1,21 @@
+name: RNA-seq Pipeline Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Nextflow
+        uses: nf-core/setup-nextflow@v1
+
+      - name: Run test pipeline
+        run: |
+          nextflow run main.nf -profile docker -config nextflow.config
