@@ -56,7 +56,7 @@ Run the pipeline with Nextflow (if installed locally):
 ```bash
 nextflow run main.nf
 ```
-5. Output
+## 5. Output
 The pipeline will generate output in the following directory:
 
 ```bash
