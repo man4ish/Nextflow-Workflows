@@ -22,10 +22,11 @@ The Dockerfile is provided for building the container with all necessary tools (
 
 ```bash
 docker build -t nextflow-analysis .
+```
 ## 3. Configure the input files
 The pipeline requires several input files, which should be placed in specific directories.
 
-Input files:
+### Input files:
 input/fastq/: Directory containing paired-end FASTQ files for your samples (e.g., sample1_R1.fastq.gz, sample1_R2.fastq.gz).
 
 input/reference/: Directory containing reference files for alignment and variant calling:
