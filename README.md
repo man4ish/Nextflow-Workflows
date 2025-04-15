@@ -49,7 +49,7 @@ The pipeline requires the following inputs:
 - ref_flat	RefFlat annotation file for Picard
 - ribosomal_interval	Ribosomal intervals file for Picard
 - ref_seq	Reference FASTA file for Picard
-- 
+  
 ## Outputs
 The pipeline will produce the following outputs:
 
