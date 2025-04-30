@@ -19,6 +19,22 @@ jobs:
     - name: Set up Docker
       uses: docker/setup-buildx-action@v2
 
+    - name: Set up Nextflow
+      run: |
+        curl -s https://get.nextflow.io | bash
+        sudo mv nextflow /usr/local/bin/
+
+    - name: Run unit tests for individual processes
+      run: |
+        # Install nf-test
+        npm install -g nf-test
+
+        # Run tests for individual processes
+        nf-test test_fastqc.nf
+        nf-test test_bismark.nf
+        nf-test test_methylkit.nf
+        nf-test test_pipeline.nf  # Run the full pipeline test last
+
     - name: Build and run Nextflow pipeline
       run: |
         docker pull nextflow/nextflow:latest
