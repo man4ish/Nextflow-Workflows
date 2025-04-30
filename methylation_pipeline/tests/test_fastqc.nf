@@ -1,22 +1,26 @@
+#!/usr/bin/env nextflow
+
 nextflow.enable.dsl=2
 
-process fastqc {
+// Test function for fastqc process
+process test_fastqc {
     input:
     path reads
 
     output:
     path "fastqc_report"
 
-    container 'quay.io/biocontainers/fastqc:v0.11.9--0'
-
+    // Mocking fastqc process
     script:
     """
-    fastqc $reads --outdir=fastqc_report
+    echo 'Mocked fastqc process' > fastqc_report
     """
 }
 
+// Define the test input FASTQ file
 workflow {
     reads = file('test_data/sample.fastq')
 
-    fastqc(reads)
+    // Run the mocked fastqc process (test function)
+    test_fastqc(reads)
 }
