@@ -1,22 +1,22 @@
 nextflow.enable.dsl=2
 
-process methylkit_analysis {
+process test_methylkit_analysis {
     input:
     path bam_files
 
     output:
     path "methylation_results.csv"
 
-    container 'quay.io/biocontainers/r-methylkit:v1.9.0--r40hfc51f62_0'
-
     script:
     """
-    Rscript methylkit_analysis.R $bam_files
+    # Run the methylkit_analysis process
+    nextflow run test_methylkit.nf --bam_files $bam_files
     """
 }
 
 workflow {
-    bam_files = file('test_data/aligned_bam.bam')
+    // Test the process with mocked bam file
+    bam_files = file('test_data/mock_bam.bam')
 
-    methylkit_analysis(bam_files)
+    test_methylkit_analysis(bam_files)
 }
