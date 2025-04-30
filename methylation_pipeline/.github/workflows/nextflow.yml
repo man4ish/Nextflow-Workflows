@@ -1,0 +1,25 @@
+name: Nextflow Methylation Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  nextflow:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Docker
+      uses: docker/setup-buildx-action@v2
+
+    - name: Build and run Nextflow pipeline
+      run: |
+        docker pull nextflow/nextflow:latest
+        nextflow run main.nf -process.executor docker
