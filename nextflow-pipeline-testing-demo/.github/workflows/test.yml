@@ -1,0 +1,14 @@
+name: Test Nextflow Pipeline
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install Nextflow
+      run: curl -s https://get.nextflow.io | bash
+    - name: Run integration test
+      run: ./nextflow run integration_tests/test_pipeline.nf -profile test

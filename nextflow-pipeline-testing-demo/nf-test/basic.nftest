@@ -1,0 +1,22 @@
+process "process_greet" {
+
+    input:
+    file input from "test_data/input.txt"
+
+    output:
+    file "hello.txt"
+
+    script:
+    """
+    echo "Hello from \$(cat $input)" > hello.txt
+    """
+
+    test:
+    // Run process
+    outputFiles "hello.txt"
+
+    // Assert file exists
+    assert:
+    file("hello.txt").exists()
+    file("hello.txt").text.contains("Hello from World")
+}
