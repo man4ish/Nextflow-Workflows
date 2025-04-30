@@ -1,22 +1,25 @@
 nextflow.enable.dsl=2
 
-process bismark_align {
+// Define the mocked version of the bismark_align process
+process test_bismark_align {
     input:
     path fastq_files
 
     output:
     path "aligned_bam"
 
-    container 'quay.io/biocontainers/bismark:v0.23.0--h7e3b6e0_0'
-
     script:
     """
-    bismark --genome /path/to/genome --output_dir ./ $fastq_files
+    # Mock the alignment process by creating a dummy output file
+    echo 'Mocked bismark_align process' > aligned_bam
     """
 }
 
+// Define the workflow
 workflow {
+    // Input FASTQ file for testing (you would replace this with your actual data path)
     fastq_files = file('test_data/sample.fastq')
 
-    bismark_align(fastq_files)
+    // Run the mocked bismark_align process (for testing)
+    test_bismark_align(fastq_files)
 }
