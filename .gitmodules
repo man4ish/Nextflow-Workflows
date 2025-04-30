@@ -1,0 +1,6 @@
+[submodule "path/to/submodule-folder"]
+	path = path/to/submodule-folder
+	url = git@github.com:man4ish/nextflow-rna-seq-kubernetes.git
+[submodule "nextflow-rna-seq-kubernetes"]
+	path = nextflow-rna-seq-kubernetes
+	url = git@github.com:man4ish/nextflow-rna-seq-kubernetes.git
