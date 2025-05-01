@@ -1,26 +1,22 @@
-# 🧬 Whole Genome Sequencing Pipeline
+# Whole Genome Sequencing Pipeline
 
 This is a modular and reproducible **Nextflow** pipeline for **whole genome sequencing (WGS)** analysis. It includes the following steps: read trimming, quality control, alignment, sorting, deduplication, variant calling, and annotation.
 
----
+## Features
 
-## 🚀 Features
+- Trimmomatic: Adapter trimming and quality filtering  
+- FastQC: Quality check of raw and trimmed reads  
+- BWA: Read alignment to reference genome  
+- Samtools & Picard: Sorting, indexing, and marking duplicates  
+- GATK: Variant calling using HaplotypeCaller  
+- SnpEff: Variant annotation  
+- Dockerized: Fully containerized environment  
+- CI/CD: GitHub Actions integrated  
+- Unit Testing: Process-level testing using [`nf-test`](https://github.com/nextflow-io/nf-test)
 
-- **Trimmomatic**: Adapter trimming and quality filtering
-- **FastQC**: Quality check of raw and trimmed reads
-- **BWA**: Read alignment to reference genome
-- **Samtools & Picard**: Sorting, indexing, and marking duplicates
-- **GATK**: Variant calling using HaplotypeCaller
-- **SnpEff**: Variant annotation
-- **Dockerized**: Fully containerized environment
-- **CI/CD**: GitHub Actions integrated
-- **Unit Testing**: Process-level testing using [`nf-test`](https://github.com/nextflow-io/nf-test)
+## Project Structure
 
----
-
-## 🏗️ Project Structure
-
-```text
+```
 .
 ├── main.nf                 # Nextflow pipeline
 ├── nextflow.config         # Pipeline configuration
@@ -37,20 +33,23 @@ This is a modular and reproducible **Nextflow** pipeline for **whole genome sequ
 │   └── annotate_snps.nf.test
 ```
 
-🐳 Docker
+## Docker
+
 Build and tag the Docker image:
-```
+
+```bash
 docker build -t wgs-pipeline:latest .
 ```
-Use the image in the pipeline by adding this to your nextflow.config:
 
-```
+Add this to your `nextflow.config`:
+
+```groovy
 process.container = 'wgs-pipeline:latest'
 ```
 
-🔧 Run the Pipeline
-```
-bash
+## Run the Pipeline
+
+```bash
 nextflow run main.nf \
   --reads 'data/*_R{1,2}.fastq.gz' \
   --reference 'genome.fa' \
@@ -58,13 +57,13 @@ nextflow run main.nf \
   --outdir 'results'
 ```
 
-## Run all tests:
+## Run All Tests
 
 ```bash
 nf-test tests/
 ```
 
-## Run a specific test:
+## Run a Specific Test
 
 ```bash
 nf-test tests/trimmomatic.nf.test
