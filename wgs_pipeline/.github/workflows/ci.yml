@@ -1,25 +1,41 @@
-name: CI Pipeline Test
+name: WGS Pipeline CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
-  test:
+  nf-test:
+    name: Run nf-test unit tests
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Install Nextflow
-      run: |
-        wget -qO- https://get.nextflow.io | bash
-        sudo mv nextflow /usr/local/bin/
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '11'
 
-    - name: Run nf-test
-      uses: nf-core/nf-test@v3
-      with:
-        args: test .
+      - name: Install Nextflow
+        run: |
+          curl -s https://get.nextflow.io | bash
+          sudo mv nextflow /usr/local/bin/
+          nextflow -version
 
-    - name: Run pipeline dry-run
-      run: |
-        nextflow run main.nf -profile test --reads "test_data/*_R{1,2}.fastq.gz" --reference "test_data/ref.fa" -resume
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install nf-test
+        run: |
+          pip install nf-test
+
+      - name: Run nf-test on all processes
+        run: |
+          nf-test run main.nf --testdir tests/
