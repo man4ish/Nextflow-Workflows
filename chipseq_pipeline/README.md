@@ -32,12 +32,18 @@ mv nextflow /usr/local/bin/
 ```
 project/
 ├── data/
-│   ├── sample1_R1.fastq
-│   └── control.bam
-├── main.nf
-├── nextflow.config
-├── Dockerfile
-└── README.md
+│   ├── sample1_R1.fastq         # Example input FASTQ
+│   └── control.bam              # Example control BAM
+├── main.nf                      # Nextflow pipeline script
+├── nextflow.config              # Nextflow config with Docker settings
+├── Dockerfile                   # Dockerfile for ChIP-Seq tools
+├── README.md                    # Project documentation
+├── tests/                       # Unit test definitions for nf-test
+│   └── test_chipseq.nf.test     # Unit test file for pipeline steps
+├── .nf-test.yaml                # Optional nf-test config (workDir, etc.)
+└── .github/
+    └── workflows/
+        └── ci.yml               # GitHub Actions workflow for CI/CD
 ```
 
 ## Running the Pipeline
