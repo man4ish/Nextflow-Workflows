@@ -1,0 +1,24 @@
+// tests/test_chipseq.nf.test
+
+describe "ChIP-Seq pipeline basic test" {
+
+  workflow {
+    include { fastqc; trim_reads; align_reads; call_peaks; motif_analysis } from workflow_chipseq
+
+    fastqc(input: file('data/sample1_R1.fastq'))
+    trim_reads(input: fastqc.out)
+    align_reads(input: trim_reads.out)
+    call_peaks(input: align_reads.out, control: file('data/control.bam'))
+    motif_analysis(input: call_peaks.out)
+  }
+
+  test "Check peak calling output exists" {
+    expect:
+      call_peaks.out.exists()
+  }
+
+  test "Motif analysis generates output" {
+    expect:
+      motif_analysis.out.exists()
+  }
+}
