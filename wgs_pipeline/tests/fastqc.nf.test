@@ -1,0 +1,6 @@
+process "fastqc" {
+  input:
+    tuple val("sample1"), file("sample1_1_paired.fq.gz"), file("sample1_2_paired.fq.gz")
+  output:
+    file("sample1_1_paired_fastqc.zip"), file("sample1_2_paired_fastqc.zip")
+}
