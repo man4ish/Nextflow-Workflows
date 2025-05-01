@@ -1,0 +1,6 @@
+process "sort_index" {
+  input:
+    tuple val("sample1"), file("sample1.bam")
+  output:
+    tuple val("sample1"), file("sample1.sorted.bam")
+}
