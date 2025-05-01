@@ -1,0 +1,6 @@
+process "mark_duplicates" {
+  input:
+    tuple val("sample1"), file("sample1.sorted.bam")
+  output:
+    tuple val("sample1"), file("sample1.dedup.bam")
+}
