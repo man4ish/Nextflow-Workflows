@@ -1,0 +1,9 @@
+describe 'trimmomatic' {
+  input:
+    tuple val("sample1"), file("tests/data/test_R1.fastq.gz"), file("tests/data/test_R2.fastq.gz")
+  output:
+    tuple val("sample1"), file("sample1_1_paired.fq.gz"), file("sample1_2_paired.fq.gz")
+
+  test:
+    process "trimmomatic"
+}
