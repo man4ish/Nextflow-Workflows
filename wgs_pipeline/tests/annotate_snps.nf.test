@@ -1,0 +1,6 @@
+process "annotate_snps" {
+  input:
+    tuple val("sample1"), file("sample1.vcf")
+  output:
+    file("sample1.annotated.vcf")
+}
