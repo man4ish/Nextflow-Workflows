@@ -1,0 +1,7 @@
+process "call_variants" {
+  input:
+    tuple val("sample1"), file("sample1.dedup.bam")
+    file("ref.fa")
+  output:
+    tuple val("sample1"), file("sample1.vcf")
+}
