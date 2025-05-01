@@ -1,0 +1,7 @@
+process "bwa_align" {
+  input:
+    tuple val("sample1"), file("sample1_1_paired.fq.gz"), file("sample1_2_paired.fq.gz")
+    file("ref.fa")
+  output:
+    tuple val("sample1"), file("sample1.bam")
+}
