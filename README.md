@@ -1,110 +1,99 @@
-# Monorepo: Nextflow Pipelines Collection
+# Nextflow Workflows
 
-This repository contains multiple bioinformatics workflows implemented in **Nextflow**, each designed for a specific omics data type or computational purpose. It includes:
+Welcome to my **Nextflow Workflows** repository! This repository contains various Nextflow-based workflows for bioinformatics data analysis, including RNA-Seq, methylation, exome sequencing, and more. Each workflow is modular, scalable, and built to handle large datasets efficiently in both local and cloud environments.
 
-- Exome sequencing pipeline
-- Whole genome sequencing pipeline
-- RNA-seq pipeline
-- Methylation (Bisulfite) sequencing pipeline
-- Single-cell RNA-seq pipeline using **Seurat**
-- AWS Batch support
-- `nf-test` unit tests
-- GitHub Actions CI/CD
-- Kubernetes deployment example
+## 📁 Repository Structure
 
----
+Each workflow is organized in its own subdirectory, with associated scripts and configuration files.
 
-## Directory Structure
-
-
-```
-├── exome_pipeline/
-├── methylation_pipeline/
-├── rnaseq_pipeline/
-├── scRNAseq-seurat/
-├── chipseq_pipeline/
-├── nextflow_awsbatch/
-├── nextflow-monitoring-optimization/
-├── nextflow-parallelization-example/
-├── nextflow-pipeline-testing-demo/
-├── nextflow-rna-seq-kubernetes/
-├── .github/workflows/          # CI/CD for all pipelines
-└── .gitmodules                 # Submodules (e.g., Kubernetes)
-
-```
+- **README.md** – Project overview, key insights, and setup instructions
+- **Nextflow Scripts** – Main workflow scripts for data processing
+- **Config Files** – Configuration settings for different environments
+- **Data** – Links or sample datasets used
+- **Output** – Visualizations, logs, and results
+- **CI/CD Pipelines** – Continuous integration and deployment setup for automatic testing and deployment
+- **nf-test** – Unit testing for Nextflow pipelines
 
 ---
 
-## Getting Started
+### 🌟 Featured Projects
 
-### 🔧 Prerequisites
+1. **[WGS Pipeline](wgs_pipeline/README.md)**  
+   - **Description**: Whole Genome Sequencing (WGS) pipeline for large-scale DNA sequencing data analysis.
+   - **Tech Stack**: Nextflow, Python, R
+   - **Focus**: Variant calling, alignment, genomic data processing
 
-- [Nextflow](https://www.nextflow.io/)
-- Docker or Singularity
-- Git
-- [`nf-test`](https://github.com/nextflow-io/nf-test) (for testing pipelines)
+2. **[scRNA-Seq Seurat Pipeline](scRNAseq-seurat/README.md)**  
+   - **Description**: Single-cell RNA-Seq data analysis pipeline using Seurat for clustering and differential expression analysis.
+   - **Tech Stack**: Nextflow, Seurat (R), Python
+   - **Focus**: Single-cell RNA sequencing, clustering, gene expression analysis
 
-### Install nf-test
+3. **[RNA-Seq Pipeline](rnaseq_pipeline/README.md)**  
+   - **Description**: RNA-Seq pipeline for transcriptomic analysis, including quality control, alignment, and differential expression analysis.
+   - **Tech Stack**: Nextflow, STAR, Salmon, DESeq2
+   - **Focus**: RNA sequencing, gene expression analysis
 
-```bash
-pip install nf-test
-```
-### Running a Pipeline
-Each pipeline is self-contained. Navigate to the desired pipeline folder and run it:
+4. **[Nextflow RNA-Seq Kubernetes](nextflow-rna-seq-kubernetes/README.md)**  
+   - **Description**: RNA-Seq pipeline deployment and execution on Kubernetes using Nextflow.
+   - **Tech Stack**: Nextflow, Kubernetes, Docker
+   - **Focus**: Containerized pipeline, cloud deployment, scalability
 
-```
-cd rnaseq_pipeline
-nextflow run main.nf --samplesheet samplesheet.csv --outdir results
-```
-### All pipelines accept standard inputs like --samplesheet and output to --outdir.
+5. **[Nextflow Pipeline Testing Demo](nextflow-pipeline-testing-demo/README.md)**  
+   - **Description**: Demonstration of Nextflow pipeline testing, including unit testing and debugging workflows using **nf-test**.
+   - **Tech Stack**: Nextflow, Groovy
+   - **Focus**: Testing Nextflow pipelines, debugging workflows, CI/CD
 
-🧪 Running Unit Tests
-Tests are located in each pipeline’s test/ folder and can be executed using:
+6. **[Nextflow Parallelization Example](nextflow-parallelization-example/README.md)**  
+   - **Description**: Example of parallelizing tasks in a Nextflow pipeline for improved performance.
+   - **Tech Stack**: Nextflow, Python
+   - **Focus**: Task parallelization, performance optimization
 
-```
-nf-test test test/
-```
-You can also test individual processes:
+7. **[Nextflow Monitoring and Optimization](nextflow-monitoring-optimization/README.md)**  
+   - **Description**: Techniques for monitoring and optimizing Nextflow pipelines, including resource usage and execution time.
+   - **Tech Stack**: Nextflow, Bash, AWS
+   - **Focus**: Performance monitoring, pipeline optimization
 
-```
-nf-test test test/test_star_align.nf
-```
-### CI/CD with GitHub Actions
-Each pipeline is automatically tested on push or PR via GitHub Actions (.github/workflows/ci.yml).
+8. **[Nextflow AWS Batch Integration](nextflow_awsbatch/README.md)**  
+   - **Description**: Integration of Nextflow with AWS Batch for running large-scale data pipelines on AWS.
+   - **Tech Stack**: Nextflow, AWS Batch, Docker
+   - **Focus**: Cloud computing, scalable workflows, AWS integration
 
-CI steps include:
+9. **[Methylation Pipeline](methylation_pipeline/README.md)**  
+   - **Description**: DNA methylation analysis pipeline for processing bisulfite sequencing data.
+   - **Tech Stack**: Nextflow, Bismark, R
+   - **Focus**: Methylation analysis, epigenomics
 
-Linting and validating pipeline structure
+10. **[Exome Pipeline](exome_pipeline/README.md)**  
+    - **Description**: Exome sequencing pipeline for variant calling and annotation.
+    - **Tech Stack**: Nextflow, GATK, VEP
+    - **Focus**: Exome sequencing, variant analysis, bioinformatics
 
-Running unit tests with nf-test
+11. **[ChIP-Seq Pipeline](chipseq_pipeline/README.md)**  
+    - **Description**: ChIP-Seq pipeline for analyzing chromatin immunoprecipitation sequencing data.
+    - **Tech Stack**: Nextflow, MACS2, Bedtools
+    - **Focus**: ChIP-Seq, peak calling, genome-wide binding analysis
 
-Reporting test results
+---
 
-# Pipeline Summary
+### 🛠️ Tools & Technologies
 
-## Pipeline	Description
-- exome_pipeline/	Variant calling from WES data (BWA, GATK, etc.)
-- rnaseq_pipeline/	Bulk RNA-seq analysis (STAR, Salmon, DESeq2)
-- scRNAseq-seurat/	Single-cell RNA-seq analysis using Seurat (R)
-- chipseq_pipeline/ ChIP-Seq pipeline for protein-DNA interaction analysis using FastQC, Cutadapt, Bowtie2, MACS2, and HOMER. 
-- methylation_pipeline/	Bisulfite-seq using Bismark and methylKit
-- nextflow_awsbatch/	AWS Batch compute environment for Nextflow
-- nextflow-parallelization-example/	Example of parallel execution in Nextflow
-- nextflow-monitoring-optimization/	Integration with monitoring tools like Tower
-  
-## Sample Commands
-```
-nextflow run exome_pipeline/main.nf --samplesheet exome_samples.csv --outdir results
-nextflow run scRNAseq-seurat/main.nf --samplesheet cells.csv --outdir output/
-```
-## Contributing
-- Fork this repository.
+- **Languages**: Nextflow, Python, R, Bash, Groovy
+- **Tools/Software**: Docker, Kubernetes, AWS Batch, nf-test (for unit testing)
+- **CI/CD**: GitHub Actions, Jenkins, CircleCI
+- **Version Control**: Git, GitHub
 
-- Add or improve a pipeline inside its dedicated folder.
+---
 
-- Add unit tests using nf-test under test/.
+### 📚 CI/CD & Unit Testing
 
-- Update .github/workflows/ if needed.
+The workflows include **CI/CD** pipelines for continuous integration and deployment, allowing automatic testing, versioning, and deployment of each Nextflow pipeline.
 
-- Submit a pull request!
+- **CI/CD**: Pipelines are integrated with GitHub Actions and other CI tools like Jenkins or CircleCI for automated testing, building, and deployment.
+- **Unit Testing with nf-test**: The pipelines have unit tests defined using **nf-test**, which ensures that workflows execute correctly and reliably. These tests are part of the CI/CD pipeline to verify each change and prevent bugs in the workflow.
 
+**Key Features of CI/CD & nf-test Integration**:
+- Automated unit testing with **nf-test** to validate workflow correctness.
+- Continuous integration to test new changes on pull requests.
+- Continuous deployment for deploying pipelines to cloud environments like AWS or Kubernetes.
+
+---
