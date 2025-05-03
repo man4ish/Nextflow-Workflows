@@ -9,7 +9,7 @@ Each workflow is organized in its own subdirectory, with associated scripts and 
 - **README.md** – Project overview, key insights, and setup instructions
 - **Nextflow Scripts** – Main workflow scripts for data processing
 - **Config Files** – Configuration settings for different environments
-- - **Docker Images**: Docker is used to create images for each pipeline, ensuring reproducibility and portability of the workflows.
+- **Docker Images**: Docker is used to create images for each pipeline, ensuring reproducibility and portability of the workflows.
 - **Data** – Links or sample datasets used
 - **Output** – Visualizations, logs, and results
 - **CI/CD Pipelines** – Continuous integration and deployment setup for automatic testing and deployment
