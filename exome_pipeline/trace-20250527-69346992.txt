@@ -1,0 +1,3 @@
+task_id	hash	native_id	name	status	exit	submit	duration	realtime	%cpu	peak_rss	peak_vmem	rchar	wchar
+2	d3/f1fce4	18303	bwa_align (sample1)	FAILED	125	2025-05-27 19:15:47.453	167ms	91ms	-	-	-	-	-
+1	f1/22fa80	18297	fastqc (sample1)	ABORTED	-	2025-05-27 19:15:47.447	-	-	-	-	-	-	-

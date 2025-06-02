@@ -1,14 +1,19 @@
 # Nextflow Pipeline for Exome Analysis
 
-This repository contains a Nextflow pipeline for bioinformatics analysis, including quality control (FastQC), alignment (BWA), duplicate marking (Picard), base recalibration (GATK), and variant calling (GATK). The pipeline is encapsulated within a Docker container for easy reproducibility and deployment.
+This repository contains a Nextflow pipeline for bioinformatics analysis, including quality control (FastQC), alignment (BWA), duplicate marking (Picard), base recalibration (GATK), and variant calling (GATK). The pipeline supports containerized execution via Docker for easy reproducibility and deployment.
+
+---
 
 ## Requirements
 
 - [Nextflow](https://www.nextflow.io/)
 - Docker (for containerized execution)
 - Git (for version control)
+- (Optional) Nextflow Tower account for easy pipeline management and monitoring
 
-# Setup
+---
+
+## Setup
 
 ## 1. Clone the repository
 
@@ -16,71 +21,140 @@ This repository contains a Nextflow pipeline for bioinformatics analysis, includ
 git clone https://github.com/your-username/nextflow-bioinformatics-pipeline.git
 cd nextflow-bioinformatics-pipeline
 ```
-
 ## 2. Build Docker image
-The Dockerfile is provided for building the container with all necessary tools (bwa, samtools, picard, gatk, fastqc).
+The Dockerfile includes all necessary bioinformatics tools (bwa, samtools, picard, gatk, fastqc).
 
 ```bash
-docker build -t nextflow-analysis .
+docker build -t exome_pipeline .
 ```
-## 3. Configure the input files
-The pipeline requires several input files, which should be placed in specific directories.
+Optionally, push the Docker image to a container registry (required for Nextflow Tower):
 
-### Input files:
-input/fastq/: Directory containing paired-end FASTQ files for your samples (e.g., sample1_R1.fastq.gz, sample1_R2.fastq.gz).
+```bash
+docker tag exome_pipeline your_dockerhub_username/exome_pipeline:latest
+docker push your_dockerhub_username/exome_pipeline:latest
+```
+## 3. Configure input files
+The pipeline requires input and reference files organized as below:
 
-input/reference/: Directory containing reference files for alignment and variant calling:
+### Input files
+- input/fastq/: Paired-end FASTQ files, e.g. sample1_R1.fastq.gz, sample1_R2.fastq.gz
 
-assembly38.fasta: Reference genome FASTA file (e.g., Homo_sapiens_assembly38.fasta).
+### Reference files
+- input/reference/:
 
-Homo_sapiens_assembly38.dbsnp138.vcf: dbSNP VCF file for variant recalibration.
+- assembly38.fasta: Reference genome FASTA file (e.g., Homo_sapiens_assembly38.fasta)
+
+- Homo_sapiens_assembly38.dbsnp138.vcf: dbSNP VCF file for recalibration
 
 Example directory structure:
+
 ```bash
-input/
-    fastq/
-        sample1_R1.fastq.gz
-        sample1_R2.fastq.gz
-    reference/
-        assembly38.fasta
-        Homo_sapiens_assembly38.dbsnp138.vcf
+
+project/
+├── main.nf
+├── data/
+│   └── sample1_R1.fastq.gz
+│   └── sample1_R2.fastq.gz
+├── ref/
+│   └── genome.fa
+│   └── dbsnp.vcf
 ```
+
 ## 4. Running the Pipeline
-You can run the pipeline either with Docker or directly on your machine with Nextflow.
+### Option 1: Run locally with Nextflow (Docker recommended)
+```
+bash
+nextflow run main.nf \
+  --input './data' \
+  --reference './ref/genome.fa' \
+  --dbSNP './ref/dbsnp.vcf' \
+  -with-docker your_dockerhub_username/exome_pipeline:latest
 
-Run the pipeline using Docker:
+Or without Docker (if all tools installed locally):
+
 ```bash
-docker run --rm -v $(pwd):/mnt nextflow-analysis run /mnt/main.nf
+nextflow run main.nf \
+  --input './data' \
+  --reference './ref/genome.fa' \
+  --dbSNP './ref/dbsnp.vcf'
 ```
-Run the pipeline with Nextflow (if installed locally):
+### Option 2: Run with Docker directly
+
 ```bash
-nextflow run main.nf
+docker run --rm -v $(pwd):/mnt exome_pipeline run /mnt/main.nf \
+  --input '/mnt/data' \
+  --reference '/mnt/ref/genome.fa' \
+  --dbSNP '/mnt/ref/dbsnp.vcf'
 ```
+
+### Option 3: Run with Nextflow Tower
+Nextflow Tower allows you to launch, monitor, and manage your pipelines easily via a web UI.
+
+### Prerequisites
+Nextflow Tower account: https://tower.nf/
+
+Push your code to a Git repository (GitHub, GitLab, Bitbucket, etc.)
+
+Push your Docker image to a container registry (e.g., Docker Hub)
+
+Steps
+Push Docker image to registry
+
+```bash
+docker tag nextflow-analysis your_dockerhub_username/nextflow-analysis:latest
+docker push your_dockerhub_username/nextflow-analysis:latest
+```
+### Push your pipeline code
+
+```bash
+git add .
+git commit -m "Add pipeline with Docker support for Tower"
+git push origin main
+```
+
+## Configure pipeline in Tower
+
+- Log in to Nextflow Tower
+
+- Create a new pipeline and connect your Git repo URL
+
+- Set pipeline file to main.nf and branch (e.g., main)
+
+- Create or select an execution profile
+
+- Enable Docker usage and specify your Docker image: your_dockerhub_username/nextflow-analysis:latest
+
+- Set pipeline parameters (input paths, reference files) as needed
+
+- Launch
+
+- Choose your compute environment (local, cloud, Kubernetes, etc.)
+
+- Launch the pipeline and monitor it via Tower UI
+
 ## 5. Output
-The pipeline will generate output in the following directory:
+The pipeline generates output in the following structure:
 
 ```bash
+
 output/
-    fastqc/
-    aligned_bam/
-    bamfiles/
-        renamed_bam/
-fastqc/: FastQC results
-
-aligned_bam/: Aligned BAM files
-
-bamfiles/renamed_bam/: Processed BAM files with duplicates marked and base recalibrated
-
-out/g.vcf/: GVCF files from HaplotypeCaller
+├── fastqc/                # FastQC reports
+├── aligned_bam/           # Sorted BAM files from alignment
+├── bamfiles/
+│   └── renamed_bam/       # BAM files after duplicate marking and base recalibration
+└── gvcf/                  # GVCF files from HaplotypeCaller
 ```
-
-## Configuration
-The pipeline's input and reference files are configured via the following parameters in the main.nf file:
-
-```bash
-params.input = './in/non_redundant_fastq/'
-params.output = './out'
-params.reference = './in/reference/assembly38.fasta'
-params.dbSNP = './in/reference/Homo_sapiens_assembly38.dbsnp138.vcf'
-Make sure to adjust these paths if your file locations differ.
+## 6. Pipeline Parameters (can be adjusted in main.nf or Tower UI)
 ```
+params.input = './data'
+params.output = './output'
+params.reference = './ref/genome.fa'
+params.dbSNP = './ref/dbsnp.vcf'
+```
+Make sure these paths match your data locations.
+
+## Notes
+When running on cloud or HPC with Tower, ensure that input and reference files are accessible from the compute environment (e.g., shared file systems, cloud storage buckets).
+
+The pipeline uses 8 threads by default for multi-threaded tools; adjust based on your compute resources.
+

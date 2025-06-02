@@ -1,0 +1,38 @@
+Using GATK jar /opt/gatk-4.2.0.0/gatk-package-4.2.0.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -Xmx4g -jar /opt/gatk-4.2.0.0/gatk-package-4.2.0.0-local.jar BaseRecalibrator -R ref/genome.fa -I sample1.dup.bam --known-sites false -O results/bam/sample1/sample1_recal_data.csv
+03:47:06.770 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/opt/gatk-4.2.0.0/gatk-package-4.2.0.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+03:47:06.777 WARN  NativeLibraryLoader - Unable to load libgkl_compression.so from native/libgkl_compression.so (/tmp/libgkl_compression16318975738776128772.so: /tmp/libgkl_compression16318975738776128772.so: cannot open shared object file: No such file or directory (Possible cause: can't load AMD 64-bit .so on a AARCH64-bit platform))
+03:47:06.779 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/opt/gatk-4.2.0.0/gatk-package-4.2.0.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+03:47:06.782 WARN  NativeLibraryLoader - Unable to load libgkl_compression.so from native/libgkl_compression.so (/tmp/libgkl_compression263940577247912017.so: /tmp/libgkl_compression263940577247912017.so: cannot open shared object file: No such file or directory (Possible cause: can't load AMD 64-bit .so on a AARCH64-bit platform))
+Jun 02, 2025 3:47:06 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+03:47:06.828 INFO  BaseRecalibrator - ------------------------------------------------------------
+03:47:06.828 INFO  BaseRecalibrator - The Genome Analysis Toolkit (GATK) v4.2.0.0
+03:47:06.828 INFO  BaseRecalibrator - For support and documentation go to https://software.broadinstitute.org/gatk/
+03:47:06.828 INFO  BaseRecalibrator - Executing as root@bde606a5e755 on Linux v6.10.14-linuxkit aarch64
+03:47:06.828 INFO  BaseRecalibrator - Java runtime: OpenJDK 64-Bit Server VM v11.0.16+8
+03:47:06.828 INFO  BaseRecalibrator - Start Date/Time: June 2, 2025 at 3:47:06 AM UTC
+03:47:06.828 INFO  BaseRecalibrator - ------------------------------------------------------------
+03:47:06.828 INFO  BaseRecalibrator - ------------------------------------------------------------
+03:47:06.828 INFO  BaseRecalibrator - HTSJDK Version: 2.24.0
+03:47:06.829 INFO  BaseRecalibrator - Picard Version: 2.25.0
+03:47:06.829 INFO  BaseRecalibrator - Built for Spark Version: 2.4.5
+03:47:06.829 INFO  BaseRecalibrator - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+03:47:06.829 INFO  BaseRecalibrator - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+03:47:06.829 INFO  BaseRecalibrator - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+03:47:06.829 INFO  BaseRecalibrator - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+03:47:06.829 INFO  BaseRecalibrator - Deflater: JdkDeflater
+03:47:06.829 INFO  BaseRecalibrator - Inflater: JdkInflater
+03:47:06.829 INFO  BaseRecalibrator - GCS max retries/reopens: 20
+03:47:06.829 INFO  BaseRecalibrator - Requester pays: disabled
+03:47:06.829 INFO  BaseRecalibrator - Initializing engine
+03:47:06.829 INFO  BaseRecalibrator - Shutting down engine
+[June 2, 2025 at 3:47:06 AM UTC] org.broadinstitute.hellbender.tools.walkers.bqsr.BaseRecalibrator done. Elapsed time: 0.00 minutes.
+Runtime.totalMemory()=163577856
+***********************************************************************
+
+A USER ERROR has occurred: The specified fasta file (file:///Users/manishkumar/Desktop/Nextflow-Workflows/exome_pipeline/work/d7/732e828dc68aacd7cd5b0d8a3214ca/ref/genome.fa) does not exist.
+
+***********************************************************************
+Set the system property GATK_STACKTRACE_ON_USER_EXCEPTION (--java-options '-DGATK_STACKTRACE_ON_USER_EXCEPTION=true') to print the stack trace.

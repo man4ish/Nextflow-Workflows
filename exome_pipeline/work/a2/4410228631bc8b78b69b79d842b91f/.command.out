@@ -1,0 +1,6 @@
+-rw-r--r-- 1 root root  79 May 27 23:24 /ref/genome.fa
+-rw-r--r-- 1 root root   7 May 29 03:47 /ref/genome.fa.amb
+-rw-r--r-- 1 root root  29 May 29 03:47 /ref/genome.fa.ann
+-rw-r--r-- 1 root root 172 May 29 03:47 /ref/genome.fa.bwt
+-rw-r--r-- 1 root root  19 May 29 03:47 /ref/genome.fa.pac
+-rw-r--r-- 1 root root  88 May 29 03:47 /ref/genome.fa.sa

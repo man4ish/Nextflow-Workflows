@@ -1,0 +1,43 @@
+INFO	2025-05-29 04:07:59	MarkDuplicates	
+
+********** NOTE: Picard's command line syntax is changing.
+**********
+********** For more information, please see:
+********** https://github.com/broadinstitute/picard/wiki/Command-Line-Syntax-Transition-For-Users-(Pre-Transition)
+**********
+********** The command line looks like this in the new syntax:
+**********
+**********    MarkDuplicates -INPUT sample1.sorted.bam -OUTPUT results/bam/sample1/sample1.dup.bam -METRICS_FILE results/dup_log/sample1_metrics.txt -VALIDATION_STRINGENCY LENIENT -REMOVE_DUPLICATES false -ASSUME_SORTED false
+**********
+
+
+04:07:59.576 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/opt/picard.jar!/com/intel/gkl/native/libgkl_compression.so
+04:07:59.583 WARN  NativeLibraryLoader - Unable to load libgkl_compression.so from native/libgkl_compression.so (/tmp/root/libgkl_compression8930420354996141250.so: /tmp/root/libgkl_compression8930420354996141250.so: cannot open shared object file: No such file or directory (Possible cause: can't load AMD 64-bit .so on a AARCH64-bit platform))
+04:07:59.584 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/opt/picard.jar!/com/intel/gkl/native/libgkl_compression.so
+04:07:59.587 WARN  NativeLibraryLoader - Unable to load libgkl_compression.so from native/libgkl_compression.so (/tmp/root/libgkl_compression8029788933776589826.so: /tmp/root/libgkl_compression8029788933776589826.so: cannot open shared object file: No such file or directory (Possible cause: can't load AMD 64-bit .so on a AARCH64-bit platform))
+[Thu May 29 04:07:59 UTC 2025] MarkDuplicates INPUT=[sample1.sorted.bam] OUTPUT=results/bam/sample1/sample1.dup.bam METRICS_FILE=results/dup_log/sample1_metrics.txt REMOVE_DUPLICATES=false ASSUME_SORTED=false VALIDATION_STRINGENCY=LENIENT    MAX_SEQUENCES_FOR_DISK_READ_ENDS_MAP=50000 MAX_FILE_HANDLES_FOR_READ_ENDS_MAP=8000 SORTING_COLLECTION_SIZE_RATIO=0.25 TAG_DUPLICATE_SET_MEMBERS=false REMOVE_SEQUENCING_DUPLICATES=false TAGGING_POLICY=DontTag CLEAR_DT=true DUPLEX_UMI=false ADD_PG_TAG_TO_READS=true DUPLICATE_SCORING_STRATEGY=SUM_OF_BASE_QUALITIES PROGRAM_RECORD_ID=MarkDuplicates PROGRAM_GROUP_NAME=MarkDuplicates READ_NAME_REGEX=<optimized capture of last three ':' separated fields as numeric values> OPTICAL_DUPLICATE_PIXEL_DISTANCE=100 MAX_OPTICAL_DUPLICATE_SET_SIZE=300000 VERBOSITY=INFO QUIET=false COMPRESSION_LEVEL=5 MAX_RECORDS_IN_RAM=500000 CREATE_INDEX=false CREATE_MD5_FILE=false GA4GH_CLIENT_SECRETS=client_secrets.json USE_JDK_DEFLATER=false USE_JDK_INFLATER=false
+[Thu May 29 04:07:59 UTC 2025] Executing as root@d740ab6a40fb on Linux 6.10.14-linuxkit aarch64; OpenJDK 64-Bit Server VM 11.0.16+8; Deflater: Jdk; Inflater: Jdk; Provider GCS is not available; Picard version: 2.27.1
+INFO	2025-05-29 04:07:59	MarkDuplicates	Start of doWork freeMemory: 25101304; totalMemory: 31457280; maxMemory: 2147483648
+INFO	2025-05-29 04:07:59	MarkDuplicates	Reading input file and constructing read end information.
+INFO	2025-05-29 04:07:59	MarkDuplicates	Will retain up to 7780737 data points before spilling to disk.
+04:07:59.599 WARN  IntelInflaterFactory - IntelInflater is not supported, using Java.util.zip.Inflater
+INFO	2025-05-29 04:07:59	MarkDuplicates	Read 0 records. 0 pairs never matched.
+INFO	2025-05-29 04:07:59	MarkDuplicates	After buildSortedReadEndLists freeMemory: 50889240; totalMemory: 120586240; maxMemory: 2147483648
+INFO	2025-05-29 04:07:59	MarkDuplicates	Will retain up to 67108864 duplicate indices before spilling to disk.
+INFO	2025-05-29 04:07:59	MarkDuplicates	Traversing read pair information and detecting duplicates.
+INFO	2025-05-29 04:07:59	MarkDuplicates	Traversing fragment information and detecting duplicates.
+INFO	2025-05-29 04:07:59	MarkDuplicates	Sorting list of duplicate records.
+INFO	2025-05-29 04:07:59	MarkDuplicates	After generateDuplicateIndexes freeMemory: 367557632; totalMemory: 912261120; maxMemory: 2147483648
+INFO	2025-05-29 04:07:59	MarkDuplicates	Marking 0 records as duplicates.
+INFO	2025-05-29 04:07:59	MarkDuplicates	Found 0 optical duplicate clusters.
+04:07:59.642 WARN  IntelInflaterFactory - IntelInflater is not supported, using Java.util.zip.Inflater
+INFO	2025-05-29 04:07:59	MarkDuplicates	Reads are assumed to be ordered by: coordinate
+04:07:59.647 WARN  IntelDeflaterFactory - Intel Deflater not supported, using Java.util.zip.Deflater
+INFO	2025-05-29 04:07:59	MarkDuplicates	Writing complete. Closing input iterator.
+INFO	2025-05-29 04:07:59	MarkDuplicates	Duplicate Index cleanup.
+INFO	2025-05-29 04:07:59	MarkDuplicates	Getting Memory Stats.
+INFO	2025-05-29 04:07:59	MarkDuplicates	Before output close freeMemory: 24515696; totalMemory: 31457280; maxMemory: 2147483648
+INFO	2025-05-29 04:07:59	MarkDuplicates	Closed outputs. Getting more Memory Stats.
+INFO	2025-05-29 04:07:59	MarkDuplicates	After output close freeMemory: 24515640; totalMemory: 31457280; maxMemory: 2147483648
+[Thu May 29 04:07:59 UTC 2025] picard.sam.markduplicates.MarkDuplicates done. Elapsed time: 0.00 minutes.
+Runtime.totalMemory()=31457280

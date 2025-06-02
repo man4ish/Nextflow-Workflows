@@ -1,15 +1,21 @@
 # Use a base image with Java and other dependencies
 FROM openjdk:11-jre-slim
 
-# Install necessary tools: BWA, Samtools, Picard, GATK, FastQC, etc.
+# Install basic tools and dependencies
 RUN apt-get update && apt-get install -y \
     bwa \
     samtools \
     fastqc \
+    openjdk-11-jre-headless \
+    python3 \
+    python3-pip \
     curl \
     unzip \
     git \
+    wget \
+    && ln -s /usr/bin/python3 /usr/bin/python \
     && rm -rf /var/lib/apt/lists/*
+
 
 # Install GATK
 RUN curl -L https://github.com/broadinstitute/gatk/releases/download/4.2.0.0/gatk-4.2.0.0.zip -o gatk.zip \

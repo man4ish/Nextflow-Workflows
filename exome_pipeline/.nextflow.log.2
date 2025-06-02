@@ -1,0 +1,179 @@
+Jun-01 22:42:49.234 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf --input data --output results --reference ref/genome.fa --fastqc_threads 8 --dbSNP /path/to/dbsnp.vcf.gz
+Jun-01 22:42:49.285 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.04.2
+Jun-01 22:42:49.295 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/Users/manishkumar/.nextflow/plugins; core-plugins: nf-amazon@2.15.0,nf-azure@1.16.0,nf-cloudcache@0.4.3,nf-codecommit@0.2.3,nf-console@1.2.1,nf-google@1.21.0,nf-k8s@1.0.0,nf-tower@1.11.2,nf-wave@1.12.1
+Jun-01 22:42:49.308 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Jun-01 22:42:49.308 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Jun-01 22:42:49.309 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Jun-01 22:42:49.314 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Jun-01 22:42:49.321 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /Users/manishkumar/Desktop/Nextflow-Workflows/exome_pipeline/nextflow.config
+Jun-01 22:42:49.322 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /Users/manishkumar/Desktop/Nextflow-Workflows/exome_pipeline/nextflow.config
+Jun-01 22:42:49.334 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /Users/manishkumar/.nextflow/secrets/store.json
+Jun-01 22:42:49.335 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@6075b2d3] - activable => nextflow.secret.LocalSecretsProvider@6075b2d3
+Jun-01 22:42:49.340 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Jun-01 22:42:49.504 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Jun-01 22:42:49.510 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [serene_newton] DSL2 - revision: a077505e01
+Jun-01 22:42:49.511 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Jun-01 22:42:49.511 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[nf-tower@1.11.2]
+Jun-01 22:42:49.512 [main] DEBUG nextflow.plugin.PluginUpdater - Installing plugin nf-tower version: 1.11.2
+Jun-01 22:42:49.516 [main] INFO  org.pf4j.AbstractPluginManager - Plugin 'nf-tower@1.11.2' resolved
+Jun-01 22:42:49.516 [main] INFO  org.pf4j.AbstractPluginManager - Start plugin 'nf-tower@1.11.2'
+Jun-01 22:42:49.520 [main] DEBUG nextflow.plugin.BasePlugin - Plugin started nf-tower@1.11.2
+Jun-01 22:42:49.539 [main] DEBUG nextflow.Session - Session UUID: 5342d16e-5987-4ac7-b3d7-3ebe2c04987a
+Jun-01 22:42:49.539 [main] DEBUG nextflow.Session - Run name: serene_newton
+Jun-01 22:42:49.539 [main] DEBUG nextflow.Session - Executor pool size: 14
+Jun-01 22:42:49.542 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Jun-01 22:42:49.544 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=42; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Jun-01 22:42:49.554 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 25.04.2 build 5947
+  Created: 13-05-2025 21:58 UTC (16:58 CDT)
+  System: Mac OS X 15.5
+  Runtime: Groovy 4.0.26 on OpenJDK 64-Bit Server VM 21.0.7
+  Encoding: UTF-8 (UTF-8)
+  Process: 2216@mac.lan [192.168.86.201]
+  CPUs: 14 - Mem: 36 GB (752.1 MB) - Swap: 18 GB (547 MB)
+Jun-01 22:42:49.561 [main] DEBUG nextflow.Session - Work-dir: /Users/manishkumar/Desktop/Nextflow-Workflows/exome_pipeline/work [Mac OS X]
+Jun-01 22:42:49.561 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /Users/manishkumar/Desktop/Nextflow-Workflows/exome_pipeline/bin
+Jun-01 22:42:49.566 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Jun-01 22:42:49.571 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Jun-01 22:42:49.573 [main] DEBUG nextflow.Session - Observer factory: TowerFactory
+Jun-01 22:42:49.574 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Jun-01 22:42:49.583 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Jun-01 22:42:49.586 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 15; maxThreads: 1000
+Jun-01 22:42:49.608 [main] DEBUG nextflow.Session - Session start
+Jun-01 22:42:49.811 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Jun-01 22:42:49.877 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Jun-01 22:42:49.877 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-01 22:42:49.879 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Jun-01 22:42:49.882 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=14; memory=36 GB; capacity=14; pollInterval=100ms; dumpInterval=5m
+Jun-01 22:42:49.884 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Jun-01 22:42:49.892 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'FastQC': maxForks=0; fair=false; array=0
+Jun-01 22:42:49.904 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Jun-01 22:42:49.904 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-01 22:42:49.904 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'bwa_align': maxForks=0; fair=false; array=0
+Jun-01 22:42:49.907 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Jun-01 22:42:49.907 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-01 22:42:49.907 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'sort_bam': maxForks=0; fair=false; array=0
+Jun-01 22:42:49.909 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Jun-01 22:42:49.909 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-01 22:42:49.910 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'mark_duplicates': maxForks=0; fair=false; array=0
+Jun-01 22:42:49.912 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Jun-01 22:42:49.912 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-01 22:42:49.912 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'base_recalibrator': maxForks=0; fair=false; array=0
+Jun-01 22:42:49.915 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: bwa_align, base_recalibrator, mark_duplicates, FastQC, sort_bam
+Jun-01 22:42:49.916 [main] DEBUG nextflow.Session - Igniting dataflow network (6)
+Jun-01 22:42:49.919 [PathVisitor-1] DEBUG nextflow.file.PathVisitor - files for syntax: glob; folder: data/; pattern: *_{R1,R2}.fastq.gz; options: [:]
+Jun-01 22:42:49.919 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > FastQC
+Jun-01 22:42:49.919 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > bwa_align
+Jun-01 22:42:49.919 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > sort_bam
+Jun-01 22:42:49.919 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > mark_duplicates
+Jun-01 22:42:49.919 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > base_recalibrator
+Jun-01 22:42:49.919 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_af28a8ad8190ba38: /Users/manishkumar/Desktop/Nextflow-Workflows/exome_pipeline/main.nf
+Jun-01 22:42:49.919 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Jun-01 22:42:49.919 [main] DEBUG nextflow.Session - Session await
+Jun-01 22:42:50.002 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-01 22:42:50.004 [Task submitter] INFO  nextflow.Session - [d8/52e372] Submitted process > FastQC (sample1)
+Jun-01 22:42:50.008 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-01 22:42:50.008 [Task submitter] INFO  nextflow.Session - [da/d13595] Submitted process > bwa_align (sample1)
+Jun-01 22:42:50.606 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: bwa_align (sample1); status: COMPLETED; exit: 0; error: -; workDir: /Users/manishkumar/Desktop/Nextflow-Workflows/exome_pipeline/work/da/d1359503537c0e7a9bb4f442584cfe]
+Jun-01 22:42:50.607 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=42; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Jun-01 22:42:50.622 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-01 22:42:50.622 [Task submitter] INFO  nextflow.Session - [92/edd945] Submitted process > sort_bam (sort_bam)
+Jun-01 22:42:50.967 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: sort_bam (sort_bam); status: COMPLETED; exit: 0; error: -; workDir: /Users/manishkumar/Desktop/Nextflow-Workflows/exome_pipeline/work/92/edd945db1615a48b8fc79935fd1763]
+Jun-01 22:42:50.978 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-01 22:42:50.978 [Task submitter] INFO  nextflow.Session - [75/732c76] Submitted process > mark_duplicates (mark_duplicates)
+Jun-01 22:42:51.829 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: FastQC (sample1); status: COMPLETED; exit: 0; error: -; workDir: /Users/manishkumar/Desktop/Nextflow-Workflows/exome_pipeline/work/d8/52e372f40bb9e51f1fb4fc7156f8b9]
+Jun-01 22:42:51.840 [TaskFinalizer-3] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=42; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Jun-01 22:42:51.899 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 4; name: mark_duplicates (mark_duplicates); status: COMPLETED; exit: 0; error: -; workDir: /Users/manishkumar/Desktop/Nextflow-Workflows/exome_pipeline/work/75/732c7604dd9f7a9779c018ac4f121d]
+Jun-01 22:42:51.916 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-01 22:42:51.921 [Task submitter] INFO  nextflow.Session - [4c/c3a7cd] Submitted process > base_recalibrator (sample1)
+Jun-01 22:42:53.214 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 5; name: base_recalibrator (sample1); status: COMPLETED; exit: 2; error: -; workDir: /Users/manishkumar/Desktop/Nextflow-Workflows/exome_pipeline/work/4c/c3a7cdfa56cf38f15c2965ee6ae362]
+Jun-01 22:42:53.216 [TaskFinalizer-5] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=base_recalibrator (sample1); work-dir=/Users/manishkumar/Desktop/Nextflow-Workflows/exome_pipeline/work/4c/c3a7cdfa56cf38f15c2965ee6ae362
+  error [nextflow.exception.ProcessFailedException]: Process `base_recalibrator (sample1)` terminated with an error exit status (2)
+Jun-01 22:42:53.220 [TaskFinalizer-5] INFO  nextflow.processor.TaskProcessor - [4c/c3a7cd] NOTE: Process `base_recalibrator (sample1)` terminated with an error exit status (2) -- Execution is retried (1)
+Jun-01 22:42:53.223 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-01 22:42:53.223 [Task submitter] INFO  nextflow.Session - [40/1f99ab] Re-submitted process > base_recalibrator (sample1)
+Jun-01 22:42:54.288 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 6; name: base_recalibrator (sample1); status: COMPLETED; exit: 2; error: -; workDir: /Users/manishkumar/Desktop/Nextflow-Workflows/exome_pipeline/work/40/1f99ab1b7dd54777a3b546b31b318a]
+Jun-01 22:42:54.289 [TaskFinalizer-6] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=base_recalibrator (sample1); work-dir=/Users/manishkumar/Desktop/Nextflow-Workflows/exome_pipeline/work/40/1f99ab1b7dd54777a3b546b31b318a
+  error [nextflow.exception.ProcessFailedException]: Process `base_recalibrator (sample1)` terminated with an error exit status (2)
+Jun-01 22:42:54.289 [TaskFinalizer-6] INFO  nextflow.processor.TaskProcessor - [40/1f99ab] NOTE: Process `base_recalibrator (sample1)` terminated with an error exit status (2) -- Execution is retried (2)
+Jun-01 22:42:54.293 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-01 22:42:54.293 [Task submitter] INFO  nextflow.Session - [48/cf5977] Re-submitted process > base_recalibrator (sample1)
+Jun-01 22:42:55.339 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 7; name: base_recalibrator (sample1); status: COMPLETED; exit: 2; error: -; workDir: /Users/manishkumar/Desktop/Nextflow-Workflows/exome_pipeline/work/48/cf5977b6f6901ae86d2f729b50446f]
+Jun-01 22:42:55.340 [TaskFinalizer-7] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=base_recalibrator (sample1); work-dir=/Users/manishkumar/Desktop/Nextflow-Workflows/exome_pipeline/work/48/cf5977b6f6901ae86d2f729b50446f
+  error [nextflow.exception.ProcessFailedException]: Process `base_recalibrator (sample1)` terminated with an error exit status (2)
+Jun-01 22:42:55.345 [TaskFinalizer-7] ERROR nextflow.processor.TaskProcessor - Error executing process > 'base_recalibrator (sample1)'
+
+Caused by:
+  Process `base_recalibrator (sample1)` terminated with an error exit status (2)
+
+
+Command executed:
+
+  gatk --java-options '-Xmx4g' BaseRecalibrator         -R ref/genome.fa         -I sample1.dup.bam         --known-sites /path/to/dbsnp.vcf.gz         -O results/bam/sample1/sample1_recal_data.csv
+
+Command exit status:
+  2
+
+Command output:
+  (empty)
+
+Command error:
+  Using GATK jar /opt/gatk-4.2.0.0/gatk-package-4.2.0.0-local.jar
+  Running:
+      java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -Xmx4g -jar /opt/gatk-4.2.0.0/gatk-package-4.2.0.0-local.jar BaseRecalibrator -R ref/genome.fa -I sample1.dup.bam --known-sites /path/to/dbsnp.vcf.gz -O results/bam/sample1/sample1_recal_data.csv
+  03:42:55.148 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/opt/gatk-4.2.0.0/gatk-package-4.2.0.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+  03:42:55.155 WARN  NativeLibraryLoader - Unable to load libgkl_compression.so from native/libgkl_compression.so (/tmp/libgkl_compression9546852380322099112.so: /tmp/libgkl_compression9546852380322099112.so: cannot open shared object file: No such file or directory (Possible cause: can't load AMD 64-bit .so on a AARCH64-bit platform))
+  03:42:55.157 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/opt/gatk-4.2.0.0/gatk-package-4.2.0.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+  03:42:55.160 WARN  NativeLibraryLoader - Unable to load libgkl_compression.so from native/libgkl_compression.so (/tmp/libgkl_compression15248240683264968525.so: /tmp/libgkl_compression15248240683264968525.so: cannot open shared object file: No such file or directory (Possible cause: can't load AMD 64-bit .so on a AARCH64-bit platform))
+  Jun 02, 2025 3:42:55 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+  INFO: Failed to detect whether we are running on Google Compute Engine.
+  03:42:55.204 INFO  BaseRecalibrator - ------------------------------------------------------------
+  03:42:55.205 INFO  BaseRecalibrator - The Genome Analysis Toolkit (GATK) v4.2.0.0
+  03:42:55.205 INFO  BaseRecalibrator - For support and documentation go to https://software.broadinstitute.org/gatk/
+  03:42:55.205 INFO  BaseRecalibrator - Executing as root@8e85165e6aed on Linux v6.10.14-linuxkit aarch64
+  03:42:55.205 INFO  BaseRecalibrator - Java runtime: OpenJDK 64-Bit Server VM v11.0.16+8
+  03:42:55.205 INFO  BaseRecalibrator - Start Date/Time: June 2, 2025 at 3:42:55 AM UTC
+  03:42:55.205 INFO  BaseRecalibrator - ------------------------------------------------------------
+  03:42:55.205 INFO  BaseRecalibrator - ------------------------------------------------------------
+  03:42:55.206 INFO  BaseRecalibrator - HTSJDK Version: 2.24.0
+  03:42:55.206 INFO  BaseRecalibrator - Picard Version: 2.25.0
+  03:42:55.206 INFO  BaseRecalibrator - Built for Spark Version: 2.4.5
+  03:42:55.206 INFO  BaseRecalibrator - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+  03:42:55.206 INFO  BaseRecalibrator - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+  03:42:55.206 INFO  BaseRecalibrator - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+  03:42:55.206 INFO  BaseRecalibrator - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+  03:42:55.206 INFO  BaseRecalibrator - Deflater: JdkDeflater
+  03:42:55.206 INFO  BaseRecalibrator - Inflater: JdkInflater
+  03:42:55.206 INFO  BaseRecalibrator - GCS max retries/reopens: 20
+  03:42:55.206 INFO  BaseRecalibrator - Requester pays: disabled
+  03:42:55.206 INFO  BaseRecalibrator - Initializing engine
+  03:42:55.206 INFO  BaseRecalibrator - Shutting down engine
+  [June 2, 2025 at 3:42:55 AM UTC] org.broadinstitute.hellbender.tools.walkers.bqsr.BaseRecalibrator done. Elapsed time: 0.00 minutes.
+  Runtime.totalMemory()=163577856
+  ***********************************************************************
+  
+  A USER ERROR has occurred: The specified fasta file (file://ref/genome.fa) does not exist.
+  
+  ***********************************************************************
+  Set the system property GATK_STACKTRACE_ON_USER_EXCEPTION (--java-options '-DGATK_STACKTRACE_ON_USER_EXCEPTION=true') to print the stack trace.
+
+Work dir:
+  /Users/manishkumar/Desktop/Nextflow-Workflows/exome_pipeline/work/48/cf5977b6f6901ae86d2f729b50446f
+
+Container:
+  man4ish/exome_pipeline:latest
+
+Tip: you can replicate the issue by changing to the process work dir and entering the command `bash .command.run`
+Jun-01 22:42:55.346 [main] DEBUG nextflow.Session - Session await > all processes finished
+Jun-01 22:42:55.346 [TaskFinalizer-7] DEBUG nextflow.Session - Session aborted -- Cause: Process `base_recalibrator (sample1)` terminated with an error exit status (2)
+Jun-01 22:42:55.352 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Jun-01 22:42:55.352 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Jun-01 22:42:55.356 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=4; failedCount=3; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=2; abortedCount=0; succeedDuration=13.3s; failedDuration=12.6s; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=2; peakCpus=8; peakMemory=16 GB; ]
+Jun-01 22:42:55.622 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Jun-01 22:42:55.633 [main] INFO  org.pf4j.AbstractPluginManager - Stop plugin 'nf-tower@1.11.2'
+Jun-01 22:42:55.633 [main] DEBUG nextflow.plugin.BasePlugin - Plugin stopped nf-tower
+Jun-01 22:42:55.634 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
