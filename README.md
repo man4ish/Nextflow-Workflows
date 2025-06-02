@@ -92,9 +92,13 @@ The workflows include **CI/CD** pipelines for continuous integration and deploym
 - **CI/CD**: Pipelines are integrated with GitHub Actions and other CI tools like Jenkins or CircleCI for automated testing, building, and deployment.
 - **Unit Testing with nf-test**: The pipelines have unit tests defined using **nf-test**, which ensures that workflows execute correctly and reliably. These tests are part of the CI/CD pipeline to verify each change and prevent bugs in the workflow.
 
+
 **Key Features of CI/CD & nf-test Integration**:
 - Automated unit testing with **nf-test** to validate workflow correctness.
 - Continuous integration to test new changes on pull requests.
 - Continuous deployment for deploying pipelines to cloud environments like AWS or Kubernetes.
+
+### Development Plans
+I have created a dev branch where I will continuously improve each pipeline by adding proper unit tests and robust CI/CD pipelines. Contributions, feedback, and collaboration are welcome!
 
 ---
